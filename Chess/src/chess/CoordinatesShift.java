@@ -1,5 +1,6 @@
-package chess.piece;
+package chess;
 
+// Сдвиг горизонтали и вертикали
 public class CoordinatesShift {
     public final int fileShift;
     public final int rankShift;

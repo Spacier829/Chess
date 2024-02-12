@@ -6,6 +6,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Set;
 
+// Пользовательский ввод координат
 public class InputCoordinates {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -20,6 +21,7 @@ public class InputCoordinates {
                 System.out.println("Invalid format");
                 continue;
             }
+
             char fileChar = line.charAt(0);
             char rankChar = line.charAt(1);
 
@@ -49,6 +51,7 @@ public class InputCoordinates {
         }
     }
 
+    // Обработка введенных координат для цвета фигуры
     public static Coordinates inputPieceCoordinatesForColor(Color color, Board board) {
         while (true) {
             System.out.println("Enter coordinates for piece to move");
@@ -74,6 +77,7 @@ public class InputCoordinates {
         }
     }
 
+    // Обработка введенных координат для доступных клеток для хода
     public static Coordinates inputAvailableSquare(Set<Coordinates> coordinates) {
         while (true) {
             System.out.println("Enter your move for selected piece");

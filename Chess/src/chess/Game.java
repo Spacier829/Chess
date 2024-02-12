@@ -15,24 +15,27 @@ public class Game {
         this.board = board;
     }
 
+    // Метод игрового цикла
     public void gameLoop() {
         boolean isWhiteToMove = true;
 
         while (true) {
-            // render
+            // Отрисовка доски
             renderer.render(board);
 
+            // Обработка хода - ход белых, ход черных
             if (isWhiteToMove) {
                 System.out.println("White move");
             } else {
                 System.out.println("Black move");
             }
 
-            // input
+            // Ввод координат пользователем
             Coordinates sourceCoordinates = InputCoordinates.inputPieceCoordinatesForColor(
                     isWhiteToMove ? Color.WHITE : Color.BLACK, board
             );
 
+            // Получение доступных ходов
             Piece piece = board.getPiece(sourceCoordinates);
             Set<Coordinates> availableMoveSquares = piece.getAvailableMoveSquares(board);
 

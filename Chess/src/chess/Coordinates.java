@@ -1,11 +1,11 @@
 package chess;
 
-import chess.piece.CoordinatesShift;
-
 import java.util.Objects;
 
 public class Coordinates {
+    // Буквы
     public final File file;
+    // Цифры
     public final Integer rank;
 
     public Coordinates(File file, Integer rank) {
@@ -13,10 +13,12 @@ public class Coordinates {
         this.rank = rank;
     }
 
+    // Метод сдвига координат
     public Coordinates shift(CoordinatesShift shift) {
         return new Coordinates(File.values()[this.file.ordinal() + shift.fileShift], this.rank + shift.rankShift);
     }
 
+    // Метод, определяющий можно ли двигать координаты (проверка границ доски)
     public boolean canShift(CoordinatesShift shift) {
         int f = file.ordinal() + shift.fileShift;
         int r = rank + shift.rankShift;
@@ -27,6 +29,7 @@ public class Coordinates {
         return true;
     }
 
+    // Для использования класса в качестве ключа в HashMap
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
