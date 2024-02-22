@@ -1,4 +1,7 @@
-package chess;
+package chess.board;
+
+import chess.Coordinates;
+import chess.File;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,8 @@
 package chess.piece;
 
 import chess.Color;
-import chess.Board;
+import chess.board.Board;
 import chess.Coordinates;
-import chess.CoordinatesShift;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -39,6 +38,30 @@ abstract public class Piece {
         return board.isSquareEmpty(coordinates) || board.getPiece(coordinates).color != color;
     }
 
-    // Метод, возвращающий возможные ходы фигур
+    //
+    protected boolean isSquareAvailableForAttack(Coordinates coordinates, Board board) {
+        return true;
+    }
+
     protected abstract Set<CoordinatesShift> getPieceMoves();
+
+    protected Set<CoordinatesShift> getPieceAttacks() {
+        return getPieceMoves();
+    }
+
+    public Set<Coordinates> getAttackedSquares(Board board) {
+        Set<CoordinatesShift> pieceAttacks = getPieceAttacks();
+        Set<Coordinates> result = new HashSet<>();
+
+        for (CoordinatesShift pieceAttack : pieceAttacks) {
+            if (coordinates.canShift(pieceAttack)) {
+                Coordinates shiftedCoordinates = coordinates.shift(pieceAttack);
+
+                if (isSquareAvailableForAttack(shiftedCoordinates, board)) {
+                    result.add(shiftedCoordinates);
+                }
+            }
+        }
+        return result;
+    }
 }

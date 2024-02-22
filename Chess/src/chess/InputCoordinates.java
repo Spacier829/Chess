@@ -1,8 +1,11 @@
 package chess;
 
+import chess.board.Board;
+import chess.board.BoardFactory;
+import chess.board.Move;
+import chess.piece.King;
 import chess.piece.Piece;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -90,4 +93,41 @@ public class InputCoordinates {
             return input;
         }
     }
+
+    public static Move inputMove(Board board, Color color, BoardConsoleRenderer renderer) {
+        while (true) {
+            // Ввод координат пользователем
+            Coordinates sourceCoordinates = InputCoordinates.inputPieceCoordinatesForColor(
+                    color, board
+            );
+
+            // Получение доступных ходов
+            Piece piece = board.getPiece(sourceCoordinates);
+            Set<Coordinates> availableMoveSquares = piece.getAvailableMoveSquares(board);
+
+            renderer.render(board, piece);
+            Coordinates targetCoordinates = InputCoordinates.inputAvailableSquare(availableMoveSquares);
+
+            Move move = new Move(sourceCoordinates, targetCoordinates);
+
+            if (isKingMayBeAttackedAfterMove(board, color, move)) {
+                System.out.println("Your king is under attack!");
+                continue;
+            }
+
+            return move;
+        }
+    }
+
+    // Проверка, король не находится под шахом после хода
+    private static boolean isKingMayBeAttackedAfterMove(Board board, Color color, Move move) {
+        Board copy = (new BoardFactory()).copy(board);
+        copy.makeMove(move);
+
+        // Допущение - король есть на доске
+        Piece king = copy.getPiecesByColor(color).stream().filter(piece -> piece instanceof King).findFirst().get();
+
+        return copy.isSquareAttackedByColor(king.coordinates, color.opposite());
+    }
+
 }

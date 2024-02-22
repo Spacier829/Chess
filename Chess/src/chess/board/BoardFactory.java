@@ -1,7 +1,9 @@
-package chess;
+package chess.board;
 
-import chess.piece.Pawn;
-import chess.piece.Piece;
+import chess.Coordinates;
+import chess.File;
+import chess.PieceFactory;
+import chess.board.Board;
 
 public class BoardFactory {
 
@@ -10,7 +12,7 @@ public class BoardFactory {
     public Board fromFEN(String fen) {
         // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
-        Board board = new Board();
+        Board board = new Board(fen);
 
         String[] parts = fen.split(" ");
         String piecePositions = parts[0];
@@ -25,10 +27,10 @@ public class BoardFactory {
                 char fenChar = row.charAt(j);
 
                 if (Character.isDigit(fenChar)) {
-                    fileIndex+=Character.getNumericValue(fenChar);
+                    fileIndex += Character.getNumericValue(fenChar);
                 } else {
                     File file = File.values()[fileIndex];
-                    Coordinates coordinates = new Coordinates(file,rank);
+                    Coordinates coordinates = new Coordinates(file, rank);
 
                     board.setPiece(coordinates, pieceFactory.fromFenChar(fenChar, coordinates));
                     fileIndex++;
@@ -36,5 +38,15 @@ public class BoardFactory {
             }
         }
         return board;
+    }
+
+    public Board copy(Board source) {
+        Board clone = fromFEN(source.startingFen);
+
+        for (Move move : source.moves) {
+            clone.makeMove(move);
+        }
+
+        return clone;
     }
 }

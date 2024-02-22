@@ -7,8 +7,8 @@ import chess.piece.*;
 public class PieceFactory {
     // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
-    Piece fromFenChar (char fenChar, Coordinates coordinates) {
-        switch(fenChar) {
+    public Piece fromFenChar(char fenChar, Coordinates coordinates) {
+        switch (fenChar) {
             case 'p' -> {
                 return new Pawn(Color.BLACK, coordinates);
             }

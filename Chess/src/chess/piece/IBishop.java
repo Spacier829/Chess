@@ -1,7 +1,5 @@
 package chess.piece;
 
-import chess.CoordinatesShift;
-
 import java.util.HashSet;
 import java.util.Set;
 

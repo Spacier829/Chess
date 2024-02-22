@@ -1,4 +1,4 @@
-package chess;
+package chess.piece;
 
 // Сдвиг горизонтали и вертикали
 public class CoordinatesShift {
