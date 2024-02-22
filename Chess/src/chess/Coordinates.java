@@ -42,4 +42,9 @@ public class Coordinates {
     public int hashCode() {
         return Objects.hash(file, rank);
     }
+
+    @Override
+    public String toString() {
+        return file + String.valueOf(rank);
+    }
 }

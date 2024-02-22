@@ -6,11 +6,8 @@ import java.sql.SQLOutput;
 import java.util.Set;
 
 public class Game {
-
     private final Board board;
-
     private BoardConsoleRenderer renderer = new BoardConsoleRenderer();
-
     public Game(Board board) {
         this.board = board;
     }
@@ -39,6 +36,7 @@ public class Game {
             Piece piece = board.getPiece(sourceCoordinates);
             Set<Coordinates> availableMoveSquares = piece.getAvailableMoveSquares(board);
 
+            renderer.render(board, piece);
             Coordinates targetCoordinates = InputCoordinates.inputAvailableSquare(availableMoveSquares);
             // make  move
             board.movePiece(sourceCoordinates, targetCoordinates);

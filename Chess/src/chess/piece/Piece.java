@@ -35,7 +35,7 @@ abstract public class Piece {
     }
 
     // Проверка доступности клетки для хода фигуры
-    private boolean isSquareAvailableForMove(Coordinates coordinates, Board board) {
+    protected boolean isSquareAvailableForMove(Coordinates coordinates, Board board) {
         return board.isSquareEmpty(coordinates) || board.getPiece(coordinates).color != color;
     }
 
