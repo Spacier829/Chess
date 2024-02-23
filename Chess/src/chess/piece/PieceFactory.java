@@ -1,11 +1,11 @@
-package chess;
+package chess.piece;
 
 import chess.Color;
 import chess.Coordinates;
 import chess.piece.*;
 
+// Установка фигур на позиции, согласно ФЕНу
 public class PieceFactory {
-    // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
     public Piece fromFenChar(char fenChar, Coordinates coordinates) {
         switch (fenChar) {

@@ -5,7 +5,7 @@ import chess.Coordinates;
 
 import java.util.Set;
 
-// Фигура - ферзь
+// Фигура - ферзь, реализован на основе ладьи и слона
 public class Queen extends LongRangePiece implements IBishop, IRook {
     public Queen(Color color, Coordinates coordinates) {
         super(color, coordinates);

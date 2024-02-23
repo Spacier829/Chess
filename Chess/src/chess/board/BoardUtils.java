@@ -6,7 +6,9 @@ import chess.File;
 import java.util.ArrayList;
 import java.util.List;
 
+// Вспомогательные методы, для получения доступных ходов
 public class BoardUtils {
+    // Метод для получения ходов по диагонали
     public static List<Coordinates> getDiagonalsCoordinatesBetween(Coordinates source, Coordinates target) {
         // Допущение - что 2 клетки лежат на 1 диагонали
 
@@ -27,6 +29,7 @@ public class BoardUtils {
         return result;
     }
 
+    // Метод, для получения ходов по вертикали
     public static List<Coordinates> getVerticalCoordinatesBetween(Coordinates source, Coordinates target) {
         // Допущение - что 2 клетки лежат на 1 вертикали
 
@@ -40,6 +43,7 @@ public class BoardUtils {
         return result;
     }
 
+    // Метод для полчения ходов по горизонтали
     public static List<Coordinates> getHorizontalCoordinatesBetween(Coordinates source, Coordinates target) {
         // Допущение - что 2 клетки лежат на 1 горизонтали
 

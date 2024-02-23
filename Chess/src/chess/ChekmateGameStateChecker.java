@@ -4,12 +4,12 @@ import chess.board.Board;
 import chess.board.BoardFactory;
 import chess.board.Move;
 import chess.piece.King;
-import chess.piece.Pawn;
 import chess.piece.Piece;
 
 import java.util.List;
 import java.util.Set;
 
+// Проверка состояния игры
 public class ChekmateGameStateChecker extends GameStateChecker {
     @Override
     public GameState check(Board board, Color color) {
@@ -32,11 +32,9 @@ public class ChekmateGameStateChecker extends GameStateChecker {
 
                 Piece clonedKing = clone.getPiecesByColor(color).stream().filter(p -> p instanceof King).findFirst().get();
 
-
                 if (!clone.isSquareAttackedByColor(clonedKing.coordinates, color.opposite())) {
                     return GameState.ONGOING;
                 }
-
             }
         }
 
@@ -45,10 +43,5 @@ public class ChekmateGameStateChecker extends GameStateChecker {
         } else {
             return GameState.CHECKMATE_TO_BLACK_KING;
         }
-
-
-        // если король под шахом
-        // проверка что ни одна фигура не может закрыть
-
     }
 }

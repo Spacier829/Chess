@@ -1,9 +1,8 @@
 package chess.piece;
 
-import chess.Main;
-import chess.board.Board;
 import chess.Color;
 import chess.Coordinates;
+import chess.board.Board;
 import chess.board.BoardUtils;
 
 import java.util.HashSet;

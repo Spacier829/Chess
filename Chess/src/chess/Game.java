@@ -3,9 +3,6 @@ package chess;
 import chess.board.Board;
 import chess.board.Move;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Game {

@@ -16,7 +16,7 @@ public class BoardConsoleRenderer {
     public static final String ANSI_BLACK_PIECE_COLOR = "\u001B[30m";
     public static final String ANSI_WHITE_SQAURE_BACKGROUND = "\u001B[47m";
     public static final String ANSI_BLACK_SQAURE_BACKGROUND = "\u001B[0;100m";
-    public static final String ANSI_HIGHLIGHTED_SQUARE_BACKGROUND = "\u001B[45m";
+    public static final String ANSI_HIGHLIGHTED_SQUARE_BACKGROUND = "\u001B[42m";
 
     // Отрисовка шахматной доски
     public void render(Board board, Piece pieceToMove) {

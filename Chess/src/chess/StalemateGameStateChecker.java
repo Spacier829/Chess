@@ -6,6 +6,7 @@ import chess.piece.Piece;
 import java.util.List;
 import java.util.Set;
 
+// Проверка пада
 public class StalemateGameStateChecker extends GameStateChecker {
 
     @Override

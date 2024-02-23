@@ -1,12 +1,13 @@
 package chess.piece;
 
-import chess.board.Board;
-import chess.board.BoardUtils;
 import chess.Color;
 import chess.Coordinates;
+import chess.board.Board;
+import chess.board.BoardUtils;
 
 import java.util.List;
 
+// Абстрактный класс для "дальнобойных" фигур (ладья, слон, ферзь)
 public abstract class LongRangePiece extends Piece {
     public LongRangePiece(Color color, Coordinates coordinates) {
         super(color, coordinates);

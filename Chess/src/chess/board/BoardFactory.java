@@ -2,15 +2,14 @@ package chess.board;
 
 import chess.Coordinates;
 import chess.File;
-import chess.PieceFactory;
-import chess.board.Board;
+import chess.piece.PieceFactory;
 
+// Создание доски
 public class BoardFactory {
 
     private PieceFactory pieceFactory = new PieceFactory();
 
     public Board fromFEN(String fen) {
-        // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
         Board board = new Board(fen);
 
@@ -40,6 +39,7 @@ public class BoardFactory {
         return board;
     }
 
+    // Метод копирования доски, для проверки ходов
     public Board copy(Board source) {
         Board clone = fromFEN(source.startingFen);
 

@@ -2,6 +2,7 @@ package chess.board;
 
 import chess.Coordinates;
 
+// Класс ходов
 public class Move {
     public final Coordinates from, to;
 

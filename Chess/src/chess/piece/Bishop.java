@@ -1,6 +1,7 @@
 package chess.piece;
 
-import chess.*;
+import chess.Color;
+import chess.Coordinates;
 
 import java.util.Set;
 
